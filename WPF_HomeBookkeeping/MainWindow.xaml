@@ -1,0 +1,77 @@
+﻿<Window x:Class="WPF_HomeBookkeeping.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_HomeBookkeeping"
+        mc:Ignorable="d"
+        Title="Домашняя бухгалтерия" Height="350" Width="650">
+    <Window.Resources>
+        <Style x:Key="StyleFonts" TargetType="Control">
+            <Setter Property="FontSize" Value="45"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="Label" BasedOn="{StaticResource StyleFonts}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource StyleFonts}">
+            <Setter Property="Width" Value="270"/>
+            <Setter Property="Foreground" Value="Black"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource StyleFonts}">
+            <Setter Property="Margin" Value="30"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="20"/>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <TabControl>
+
+            <TabItem Header="Ввод суммы для операции" >
+                <StackPanel VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                        <Label Target="{Binding ElementName=TextBox_Sum}" Content="Сумма:"/>
+                        <TextBox x:Name="TextBox_Sum" TextAlignment="Right"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                        <Button x:Name="Button_AddExpenses" Content="Расходы" Click="Button_AddExpenses_Click"/>
+                        <Button x:Name="Button_AddIncome" Content="Доходы" Click="Button_AddIncome_Click"/>
+
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Расходы">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock x:Name="TextBlock_Expenses"
+                               Text="0"
+                               FontSize="50"
+                               Foreground="Black"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Доходы">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock x:Name="TextBlock_Income"
+                               Text="0"
+                               FontSize="50"
+                               Foreground="Black"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem Header="Оставшийся бюджет ">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock x:Name="TextBlock_Budget"
+                               Text="0"
+                               FontSize="50"
+                               Foreground="Black"/>
+                </StackPanel>
+            </TabItem>
+
+        </TabControl>
+    </DockPanel>
+</Window>
